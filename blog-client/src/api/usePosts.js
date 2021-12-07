@@ -3,15 +3,22 @@ import { ref } from '@vue/reactivity';
 
 export default function usePosts() {
 	let posts = ref([]);
+	let post = ref(null);
 
 	const fetechPosts = async () => {
 		const { data } = await axios.get('/api/posts');
 		posts.value = data.data;
-		console.log(posts);
+	};
+
+	const fetchPost = async slug => {
+		const { data } = await axios.get(`/api/posts/${slug}`);
+		post.value = data.data;
 	};
 
 	return {
 		posts,
 		fetechPosts,
+		post,
+		fetchPost,
 	};
 }
