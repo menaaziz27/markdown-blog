@@ -5,7 +5,7 @@ export default function usePosts() {
 	let posts = ref([]);
 	let post = ref(null);
 
-	const fetechPosts = async () => {
+	const fetchPosts = async () => {
 		const { data } = await axios.get('/api/posts');
 		posts.value = data.data;
 	};
@@ -17,7 +17,7 @@ export default function usePosts() {
 
 	return {
 		posts,
-		fetechPosts,
+		fetchPosts,
 		post,
 		fetchPost,
 	};

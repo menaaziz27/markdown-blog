@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostIndexController;
 use App\Http\Controllers\PostShowController;
+use App\Http\Controllers\Admin\PostIndexController as AdminPostIndexController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/posts', PostIndexController::class);
 Route::get('/posts/{post:slug}', PostShowController::class);
+Route::get('/admin/posts', AdminPostIndexController::class);

@@ -9,6 +9,6 @@ use Illuminate\Http\Request;
 class PostIndexController extends Controller
 {
     public function __invoke(){
-        return PostResource::collection(Post::wherePublished(false)->get());
+        return PostResource::collection(Post::latest()->wherePublished(true)->get());
     }
 }
