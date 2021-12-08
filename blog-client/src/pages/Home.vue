@@ -19,6 +19,8 @@ import { useStore } from 'vuex';
 export default {
 	setup() {
 		const { posts, fetechPosts } = usePosts();
+
+		// to access the useSelectors in the store
 		const store = useStore();
 		console.log(store.getters.isAuthenticated);
 		onMounted(fetechPosts);
