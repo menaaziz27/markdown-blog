@@ -14,11 +14,13 @@
 <script>
 import { onMounted } from '@vue/runtime-core';
 import usePosts from '../api/usePosts';
+import { useStore } from 'vuex';
 
 export default {
 	setup() {
 		const { posts, fetechPosts } = usePosts();
-
+		const store = useStore();
+		console.log(store.getters.isAuthenticated);
 		onMounted(fetechPosts);
 
 		return {
